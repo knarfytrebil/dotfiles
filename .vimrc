@@ -14,8 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -28,6 +26,12 @@ Plugin 'junegunn/fzf'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
