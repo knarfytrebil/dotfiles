@@ -14,8 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -28,6 +26,13 @@ Plugin 'junegunn/fzf'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'uarun/vim-protobuf'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -39,8 +44,9 @@ Plugin 'dhruvasagar/vim-table-mode'
 " Put your non-Plugin stuff after this line
 "
 let g:neocomplcache_enable_at_startup = 1
-let g:airline_theme='solarized'
+let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -70,8 +76,10 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set softtabstop=4
+set t_Co=256
 
-hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine cterm=NONE ctermbg=242 ctermfg=white guibg=darkred guifg=white
 nnoremap <S-h> gT
 nnoremap <S-l> gt
+
 
