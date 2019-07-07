@@ -29,6 +29,8 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'uarun/vim-protobuf'
+Plugin 'Yggdroot/indentLine'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,7 +46,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 let g:neocomplcache_enable_at_startup = 1
-let g:airline_theme='simple'
+let g:airline_theme='dark_minimal'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -55,6 +57,8 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 238
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
@@ -78,8 +82,8 @@ set shiftwidth=4
 set softtabstop=4
 set t_Co=256
 
-hi CursorLine cterm=NONE ctermbg=242 ctermfg=white guibg=darkred guifg=white
+colorscheme harlequin 
+hi CursorLine cterm=NONE ctermbg=000000
+
 nnoremap <S-h> gT
 nnoremap <S-l> gt
-
-
