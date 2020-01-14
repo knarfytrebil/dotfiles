@@ -29,8 +29,11 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'uarun/vim-protobuf'
-Plugin 'Yggdroot/indentLine'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'atelierbram/vim-colors_atelier-schemes'
+Plugin 'flazz/vim-colorschemes',
+Plugin 'rking/ag.vim',
+Plugin 'racer-rust/vim-racer',
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,7 +49,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 let g:neocomplcache_enable_at_startup = 1
-let g:airline_theme='dark_minimal'
+let g:airline_theme='violet'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -57,8 +60,6 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
-let g:indentLine_char = '┆'
-let g:indentLine_color_term = 238
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
@@ -73,7 +74,6 @@ set number
 
 set fileencoding=utf-8
 set encoding=utf-8
-set cursorline
 
 set tabstop=4
 set expandtab
@@ -82,8 +82,32 @@ set shiftwidth=4
 set softtabstop=4
 set t_Co=256
 
-colorscheme harlequin 
-hi CursorLine cterm=NONE ctermbg=000000
-
 nnoremap <S-h> gT
 nnoremap <S-l> gt
+
+let g:netrw_liststyle = 3
+let g:racer_cmd = '/home/yuan.yao/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_python_checkers = ['python3']
+let g:rustfmt_command = "cargo +nightly fmt -- --emit files"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/debug/*,*/kcov/*,*/venv/*     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+color nord
+color gruvbox 
